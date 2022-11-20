@@ -44,6 +44,7 @@ export const Dialogs = () => {
 
     return (
         <div className={s.dialogs}>
+
             <div className={s.dialogsItems}>
                 <DialogItem id={1} name={"Vova"}/>
                 {/*<DialogItem id={dialogsData[0].id} name={dialogsData[0].name}/>*/}
