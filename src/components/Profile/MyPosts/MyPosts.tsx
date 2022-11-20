@@ -3,10 +3,17 @@ import React from 'react';
 import {Post} from "./Post/Post";
 
 export const MyPosts = () => {
-    let postsData = [
+    let posts = [
         {message: "Hi, how are you?", likesCount: 23},
         {message: "It's my first post!!!", likesCount: 45}
     ]
+
+    let postsElement = posts.map((el)=> {
+        return (
+            <Post message={el.message} likesCount={el.likesCount}/>
+        )
+    })
+
     return (
         <div className={s.postsBlock}>
             <h3>My Posts</h3>
@@ -19,8 +26,7 @@ export const MyPosts = () => {
                 </div>
             </div>
             <div className={s.posts}>
-                <Post message={postsData[0].message} likesCount={postsData[0].likesCount}/>
-                <Post message={postsData[1].message} likesCount={postsData[1].likesCount}/>
+                {postsElement}
             </div>
         </div>
     );
