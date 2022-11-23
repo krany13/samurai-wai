@@ -2,13 +2,18 @@ import s from "./MyPosts.module.css"
 import React from 'react';
 import {Post} from "./Post/Post";
 
-export const MyPosts = () => {
-    let posts = [
-        {message: "Hi, how are you?", likesCount: 23},
-        {message: "It's my first post!!!", likesCount: 45}
-    ]
+export type PostTypeProps = {
+    message: string
+    likesCount: number
+}
 
-    let postsElement = posts.map((el)=> {
+export type PostType = {
+    posts: Array<PostTypeProps>
+}
+
+export const MyPosts = (props: PostType) => {
+
+    let postsElement = props.posts.map((el) => {
         return (
             <Post message={el.message} likesCount={el.likesCount}/>
         )

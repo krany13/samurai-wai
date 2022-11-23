@@ -13,28 +13,36 @@ export type MessageItemPropsType = {
     id: number
 }
 
-export const Dialogs = () => {
-    let dialogs = [
-        {id: 1, name: "Vova"},
-        {id: 2, name: "Lesha"},
-        {id: 3, name: "Ilya"},
-        {id: 4, name: "Danil"},
-    ]
+export type DialogsType = {
+    dialogs: Array<DialogItemPropsType>
+}
 
-    let messages = [
-        {id: 1, message: "hi"},
-        {id: 2, message: "How are you?"},
-        {id: 3, message: "Hello"},
-        {id: 4, message: "How are you today?"},
-    ]
+export type MessageType = {
+    messages: Array<MessageItemPropsType>
+}
 
-    let dialogsElement = dialogs.map((el) => {
+export const Dialogs = (props: DialogsType, MessageType) => {
+    // let dialogs = [
+    //     {id: 1, name: "Vova"},
+    //     {id: 2, name: "Lesha"},
+    //     {id: 3, name: "Ilya"},
+    //     {id: 4, name: "Danil"},
+    // ]
+
+    // let messages = [
+    //     {id: 1, message: "hi"},
+    //     {id: 2, message: "How are you?"},
+    //     {id: 3, message: "Hello"},
+    //     {id: 4, message: "How are you today?"},
+    // ]
+
+    let dialogsElement = props.dialogs.map((el) => {
         return (
             <DialogItem id={el.id} name={el.name}/>
         )
     })
 
-    let messagesElement = messages.map((el) => {
+    let messagesElement = props.messages.map((el) => {
         return (
             <MessageItem message={el.message} id={el.id}/>
         )
